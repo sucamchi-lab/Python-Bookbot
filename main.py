@@ -1,17 +1,6 @@
+from ignoredwords import IGNORED_WORDS
 from stats import word_count
 import sys
-
-IGNORED_WORDS = {
-    "the", "a", "an", "and", "or", "but", "if", "then", "else", "when",
-    "at", "from", "by", "for", "with", "about", "against", "between",
-    "into", "through", "during", "before", "after", "above", "below",
-    "to", "of", "in", "on", "is", "are", "was", "were", "be", "been",
-    "being", "have", "has", "had", "do", "does", "did", "i", "me",
-    "my", "we", "our", "you", "your", "he", "him", "his", "she",
-    "her", "it", "its", "they", "them", "their", "which", "that", "this", "as", "all", "not",
-    "some", "any", "no", "up", "down", "out", "over", "under", "again",
-    "further", "then", "once", "here", "there", "when", "so"
-}
 
 
 def get_book_text(book):
@@ -23,7 +12,7 @@ def get_top_words(text, limit=100):
     words = text.lower().split()
     counts = {}
     for word in words:
-        cleaned = word.strip('.,?_!"()[]:;*#')
+        cleaned = word.strip('.,?_!"()[]:;*#\u201c\u201d')
         if cleaned and cleaned not in IGNORED_WORDS:
             counts[cleaned] = counts.get(cleaned, 0) + 1
     sorted_words = sorted(counts.items(), key=lambda x: x[1], reverse=True)
