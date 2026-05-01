@@ -199,7 +199,6 @@ IGNORED_WORDS = {
     "thought",
     "through",
     "till",
-    "time",
     "to",
     "too",
     "took",
@@ -241,4 +240,6 @@ IGNORED_WORDS = {
     "yours",
     "yourself",
     "yourselves"
+    "could",
+    "yet"
 }
